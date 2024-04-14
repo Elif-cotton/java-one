@@ -53,7 +53,7 @@ public class Serie extends Titulo{
         return "Serie: "+this.getNombre()+" ("+this.getFechaDeLanzamiento()+")";
     }
 
-    @Override
+    //@Override
     public int getClasificacion() {
         return (int) calculaMediaEvaluaciones() / 2;
     }

@@ -16,14 +16,14 @@ public class Pelicula extends Titulo{
         this.director = director;
     }
 
-    @Override
+    //@Override
     public int getClasificacion() {
         return (int) calculaMediaEvaluaciones() / 2;
     }
 
-    @Override
-    public String toString() {
-        return "Pelicula: " + this.getNombre() + " (" + getFechaDeLanzamiento() + ")";
-    }
+    //@Override
+   // public String toString() {
+     //   return "Pelicula: " + this.getNombre() + " (" + getFechaDeLanzamiento() + ")";
+   // }
 
 }
