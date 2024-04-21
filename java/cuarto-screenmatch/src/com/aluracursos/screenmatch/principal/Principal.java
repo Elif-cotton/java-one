@@ -1,3 +1,5 @@
+package com.aluracursos.screenmatch.principal;
+
 import com.aluracursos.screenmatch.calculos.CalculadoraDeTiempo;
 import com.aluracursos.screenmatch.calculos.FiltroRecomendacion;
 import com.aluracursos.screenmatch.modelos.Episodio;
@@ -9,10 +11,8 @@ import java.util.ArrayList;
 public class Principal {
     public static void main(String[] args) {
 
-        Pelicula miPelicula = new Pelicula();
+        Pelicula miPelicula = new Pelicula("Encanto", 2021);
 
-        miPelicula.setNombre("Encanto");
-        miPelicula.setFechaDeLanzamiento(2021);
         miPelicula.setDuracionEnMinutos(180);
         System.out.println("Duración de la película: " + miPelicula.getDuracionEnMinutos());
 
@@ -24,18 +24,14 @@ public class Principal {
         System.out.println(miPelicula.calculaMedia());
 
 
-        Serie lost = new Serie();
-        lost.setNombre("Lost");
-        lost.setFechaDeLanzamiento(2000);
+        Serie lost = new Serie("Lost",2000);
         lost.muestraFichaTecnica();
         lost.setTemporadas(10);
         lost.setEpisodiosPorTemporada(10);
         lost.setMinutosPorEpisodios(50);
         System.out.println("Duracion de la série: " + lost.getDuracionEnMinutos());
 
-        Pelicula otraPelicula = new Pelicula();
-        otraPelicula.setNombre("Avatar");
-        otraPelicula.setFechaDeLanzamiento(2023);
+        Pelicula otraPelicula = new Pelicula("Avatar",2023);
         otraPelicula.setDuracionEnMinutos(200);
 
         CalculadoraDeTiempo calculadora = new CalculadoraDeTiempo();
@@ -53,10 +49,9 @@ public class Principal {
         episodio.setTotalVisualizaciones(300);
         filtro.filtra(episodio);
 
-        var peliculaDeBruno = new Pelicula();
-        peliculaDeBruno.setNombre("El señor de los anillos");
+        var peliculaDeBruno = new Pelicula("El señor de los anillos",2001);
         peliculaDeBruno.setDuracionEnMinutos(180);
-        peliculaDeBruno.setFechaDeLanzamiento(2001);
+
 
         ArrayList<Pelicula> listaDePeliculas = new ArrayList<>();
         listaDePeliculas.add(peliculaDeBruno);
