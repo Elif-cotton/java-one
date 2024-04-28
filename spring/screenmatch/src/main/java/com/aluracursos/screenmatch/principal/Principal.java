@@ -14,7 +14,7 @@ public class Principal {
 
     private Scanner teclado = new Scanner(System.in);
     private ConsumoAPI consumoApi = new ConsumoAPI();
-    private final String URL_BASE = "https://www.omdbapi.com/?t=";
+    private final String URL_BASE = "https://www.omdbapi.com/?t=";  //final constante
     private final String API_KEY = "&apikey=727776e2";
     private ConvierteDatos conversor = new ConvierteDatos();
 
@@ -29,18 +29,21 @@ public class Principal {
         DatosSerie datos = conversor.obtenerDatos(json, DatosSerie.class);
         System.out.println(datos);
 
+
         //Busca los datos de todas las temporadas
         List<DatosTemporada> temporadas = new ArrayList<>();
 
-        for (int i = 1; i <= datos.totalTemporadas(); i++) {
+        for (int i = 1; i <= datos.totalDeTemporadas(); i++) {
             json = consumoApi.obtenerDatos(URL_BASE + nombreSerie.replace(" ", "+") + "&Season=" + i + API_KEY);
             DatosTemporada datosTemporada = conversor.obtenerDatos(json, DatosTemporada.class);
             temporadas.add(datosTemporada);
         }
         temporadas.forEach(System.out::println);
 
+
+
         //Mostrar solo el titulo de los episodios para las temporadas
-        for (int i = 0; i < datos.totalTemporadas(); i++) {
+        for (int i = 0; i < datos.totalDeTemporadas(); i++) {
             List<DatosEpisodio> episodiosTemporadas = temporadas.get(i).episodios();
             for (int j = 0; j < episodiosTemporadas.size(); j++) {
                 System.out.println(episodiosTemporadas.get(j).titulo());
