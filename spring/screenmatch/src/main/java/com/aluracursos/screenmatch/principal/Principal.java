@@ -114,6 +114,7 @@ public class Principal {
                         Collectors.averagingDouble(Episodio::getEvaluacion)));
         System.out.println(evaluacionesPorTemporada);
 
+        //estadísticas
         DoubleSummaryStatistics est = episodios.stream()
                 .filter(e -> e.getEvaluacion() > 0.0)
                 .collect(Collectors.summarizingDouble(Episodio::getEvaluacion));
