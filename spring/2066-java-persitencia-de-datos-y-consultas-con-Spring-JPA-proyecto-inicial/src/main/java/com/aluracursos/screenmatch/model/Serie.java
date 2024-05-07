@@ -21,7 +21,8 @@ public class Serie {
     private Categoria genero;
     private String actores;
     private String sinopsis;
-    @Transient
+    //@Transient
+    @OneToMany(mappedBy = "serie", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Episodio> episodios;
 
     public Serie(){}
