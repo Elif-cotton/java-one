@@ -10,19 +10,19 @@
 //@SpringBootApplication
 //public class ScreenmatchApplicationConsola implements CommandLineRunner {
 
-	//@Autowired
-	//private SerieRepository repository;
-	//public static void main(String[] args) {
-		//SpringApplication.run(ScreenmatchApplicationConsola.class, args);
-	//}
+    //@Autowired
+    //private SerieRepository repository;
+   // public static void main(String[] args) {
+       // SpringApplication.run(ScreenmatchApplicationConsola.class, args);
+    //}
 
-	//@Override
-	//public void run(String... args) throws Exception {
-		//Principal principal = new Principal(repository);
-		//principal.muestraElMenu();
-
-
+    //@Override
+    //public void run(String... args) throws Exception {
+       // Principal principal = new Principal(repository);
+        //principal.muestraElMenu();
 
 
-	//}
+
+
+    //}
 //}
