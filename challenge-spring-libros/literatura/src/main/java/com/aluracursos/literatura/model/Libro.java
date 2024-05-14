@@ -12,27 +12,29 @@ public class Libro {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
     @Column(unique = true)  //único
     private String titulo;
-    @ManyToOne
-    @JoinColumn(name = "autor_id") // Nombre de la columna en la tabla Libro que referencia al autor
-    private List<DatosAutor> autor;
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "libros_autores",
+            joinColumns = @JoinColumn(name = "libro_id"),
+            inverseJoinColumns = @JoinColumn(name = "autor_id"))
+    private List<Autor> autores;
     private List<String> idiomas;
     private Double numeroDeDescargas;
 
     public Libro(){}
 
-    public Libro(String titulo, List<DatosAutor> autor, List<String> idiomas, Double numeroDeDescargas) {
+    public Libro(String titulo,  List<Autor> autores, List<String> idiomas, Double numeroDeDescargas) {
         this.titulo = titulo;
-        this.autor = autor;
+        this.autores = autores;
         this.idiomas = idiomas;
         this.numeroDeDescargas = numeroDeDescargas;
     }
 
     public Libro(DatosLibro datosLibro){
         this.titulo = datosLibro.titulo();
-        this.autor = datosLibro.autor();
         this.idiomas = datosLibro.idiomas();
         this.numeroDeDescargas = datosLibro.numeroDeDescargas();
     }
@@ -40,17 +42,17 @@ public class Libro {
     @Override
     public String toString() {
         return "titulo='" + titulo + '\'' +
-                ", autor =" + autor +
+                ", autor =" + autores +
                 ", idiomas=" + idiomas +
                 ", número de descargas='" + numeroDeDescargas + '\'';
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        id = id;
     }
 
     public String getTitulo() {
@@ -61,13 +63,13 @@ public class Libro {
         this.titulo = titulo;
     }
 
-    public List<DatosAutor> getAutor() {
-        return autor;
+    public  List<Autor> getAutor() {
+        return autores;
     }
 
-    public void setAutor(List<DatosAutor> autor) {
+    public void setAutor( List<Autor> autores) {
         //autor.forEach(a -> a.setLibro(this));
-        this.autor = autor;
+        this.autores = autores;
     }
 
     public List<String> getIdiomas() {
