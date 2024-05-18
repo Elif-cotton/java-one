@@ -41,10 +41,10 @@ public class Libro {
 
     @Override
     public String toString() {
-        return "titulo='" + titulo + '\'' +
-                ", autor =" + autores +
-                ", idiomas=" + idiomas +
-                ", número de descargas='" + numeroDeDescargas + '\'';
+        return "Título=" + titulo + "\n" +
+                "Autor =" + autores + "\n" +
+                "Idiomas=" + idiomas + "\n" +
+                "Número de descargas=" + numeroDeDescargas + "\n";
     }
 
     public Long getId() {

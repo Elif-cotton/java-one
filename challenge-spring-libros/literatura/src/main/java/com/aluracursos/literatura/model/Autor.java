@@ -16,8 +16,7 @@ public class Autor {
     private String nombre;
     private String fechaDeNacimiento;
     private String fechaDeFallecimiento;
-    @ManyToMany(mappedBy = "autores")
-    private List<Libro> libros;
+
 
     public Autor() {
     }
@@ -69,12 +68,5 @@ public class Autor {
         this.fechaDeFallecimiento = fechaDeFallecimiento;
     }
 
-    public List<Libro> getLibros() {
-        return libros;
-    }
-
-    public void setLibros(List<Libro> libros) {
-        this.libros = libros;
-    }
 
 }
