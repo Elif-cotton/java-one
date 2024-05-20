@@ -185,18 +185,6 @@ public class Principal {
             System.out.println("No hay autores vivos en el año " + year);
         }
     }
-    private static boolean estaVivoEnYear(Autor autor, int year) {
-        // Verificar si el autor está vivo en el año especificado
-        try {
-            int yearDeNacimiento = Integer.parseInt(autor.getFechaDeNacimiento());
-            int yearDeFallecimiento = Integer.parseInt(autor.getFechaDeFallecimiento());
-
-            return yearDeNacimiento <= year && (yearDeFallecimiento == 0 || yearDeFallecimiento >= year);
-        } catch (NumberFormatException e) {
-            // Si la fecha de nacimiento o la fecha de fallecimiento no son números, se asume que el autor está muerto
-            return false;
-        }
-    }
 
     private void listarLibrosPorIdioma() {
         System.out.println("Ingrese la sigla del idioma en que desea buscar los libros:");
